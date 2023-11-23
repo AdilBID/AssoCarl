@@ -1,0 +1,16 @@
+
+//config and basic variable formatting
+@import './00_config/variables-colors';
+
+// tools
+@import './01_tools/css-reset';
+
+//Organisms
+
+@import './02_organisms/404';
+@import './02_organisms/Header';
+@import './02_organisms/Footer';
+
+//components
+
+@import './03_components/CardList';

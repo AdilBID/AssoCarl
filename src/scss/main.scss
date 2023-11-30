@@ -1,14 +1,13 @@
 
 //config and basic variable formatting
 @import './00_config/variables-colors';
+@import './00_config/fonts';
 
 // tools
 @import './01_tools/css-reset';
 
-//Organisms
 
-@import './02_organisms/404';
-@import './02_organisms/Header';
-@import './02_organisms/Footer';
 
-//componen
+//components
+
+@import '../Components/Header/Header'

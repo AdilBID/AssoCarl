@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Mada";
+  src: url("../../fonts/Mada-Regular.woff2") format("woff2"),
+    url("../../fonts/Mada-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Black-mango";
+  src: url("../../fonts/BlackMango-Regular.woff2") format("woff2"),
+    url("../../fonts/BlackMango-Bold.woff2") format("woff2");
+}
+
+// USAGE
+
+:root {
+  font-family: "Mada";
+}

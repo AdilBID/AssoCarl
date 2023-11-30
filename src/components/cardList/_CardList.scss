@@ -1,0 +1,71 @@
+// CARDLIST
+.cardlist {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 27rem;
+
+  .card {
+    max-height: 28rem;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 10em 4em 1fr;
+    justify-items: center;
+  }
+
+  .svgcolor {
+    fill: $boston-blue;
+  }
+
+  .flexsvg {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin: 4rem 0 2rem 0;
+  }
+
+  svg {
+    width: 4.6rem;
+  }
+
+  a {
+    color: #377bc7;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-decoration: underline;
+  }
+
+  .text {
+    display: flex;
+
+    width: 250px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
+    text-align: center;
+
+    p {
+      padding: 0 1rem;
+      font-size: .95rem;
+    }
+  }
+
+  .actions {
+    color: #377bc7;
+    background: #c7f0fe;
+  }
+
+  .aide {
+    color: #377bc7;
+    background: #ffe7cb;
+  }
+
+  .partenaire {
+    color: #377bc7;
+    background: #f7e5e7;
+  }
+
+  .temoigner {
+    color: #377bc7;
+    background: #cbd7f2;
+  }
+}

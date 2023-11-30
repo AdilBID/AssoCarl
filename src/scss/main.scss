@@ -1,15 +1,11 @@
-
 //config and basic variable formatting
-@import './00_config/variables-colors';
-@import './00_config/fonts';
+@import "./00_config/variables-colors";
+@import "./00_config/fonts";
 
 // tools
-@import './01_tools/css-reset';
-
-
+@import "./01_tools/css-reset";
 
 //components
 
-@import '../Components/Header/Header';
+@import '../Components/Header/header';
 @import '../components/cardList/CardList';
-

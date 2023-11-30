@@ -63,7 +63,7 @@ const Header: React.FC = () => {
               <li><Link to="/nos-actions">Nos actions</Link></li>
               <li><Link to="/nous-soutenir">Nous soutenir</Link></li>
               <li>
-                <Button aria-controls="simple-menu" aria-haspopup="true" className="Adil" onClick={handleMenuClick}>
+                <Button aria-controls="simple-menu" aria-haspopup="true" className="menu-dropdown" onClick={handleMenuClick}>
                   Plus
                 </Button>
                 <Menu
@@ -72,7 +72,6 @@ const Header: React.FC = () => {
                   keepMounted
                   open={open}
                   onClose={handleMenuClose}
-                  className="Test"
                 >
                   <MenuItem onClick={handleMenuClose} component={Link} to="/notre-equipe">Notre équipe</MenuItem>
                   <MenuItem onClick={handleMenuClose} component={Link} to="/faire-un-don">Faire un don</MenuItem>

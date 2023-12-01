@@ -1,6 +1,6 @@
 // Header.tsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
@@ -59,9 +59,9 @@ const Header: React.FC = () => {
         <div>
           <ul role="list" className="navigation">
             <div className="header-nav">
-              <li><Link to="/">Accueil</Link></li>
-              <li><Link to="/nos-actions">Nos actions</Link></li>
-              <li><Link to="/nous-soutenir">Nous soutenir</Link></li>
+              <li><NavLink to="/" className={({ isActive }) => isActive ? 'active-link' : ''}>Accueil</NavLink></li>
+              <li><NavLink to="/nos-actions"className={({ isActive }) => isActive ? 'active-link' : ''}>Nos actions</NavLink></li>
+              <li><NavLink to="/nous-soutenir"className={({ isActive }) => isActive ? 'active-link' : ''}>Nous soutenir</NavLink></li>
               <li>
                 <Button aria-controls="simple-menu" aria-haspopup="true" className="menu-dropdown" onClick={handleMenuClick}>
                   Plus
@@ -73,8 +73,8 @@ const Header: React.FC = () => {
                   open={open}
                   onClose={handleMenuClose}
                 >
-                  <MenuItem onClick={handleMenuClose} component={Link} to="/notre-equipe">Notre équipe</MenuItem>
-                  <MenuItem onClick={handleMenuClose} component={Link} to="/faire-un-don">Faire un don</MenuItem>
+                  <MenuItem onClick={handleMenuClose} component={NavLink} to="/notre-equipe" >Notre équipe</MenuItem>
+                  <MenuItem onClick={handleMenuClose} component={NavLink} to="/faire-un-don">Faire un don</MenuItem>
                 </Menu>
               </li>
             </div>

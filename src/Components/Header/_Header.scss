@@ -2,16 +2,15 @@ nav {
   background-color: $boston-blue;
 
   .mobile-menu-icon {
-    display: none; // Par défaut, l'icône est masquée
+    display: none; 
     cursor: pointer;
-    // Ajoutez ici d'autres styles pour l'icône si nécessaire
   
     @media (max-width: 768px) {
-      display: block; // Affiche l'icône en mode mobile
+      display: block; 
       position: absolute;
       top: 0;
       right: 0;
-      padding: 10px; // Ajustez selon votre mise en page
+      padding: 10px; 
     }
   }
 
@@ -69,12 +68,18 @@ nav {
 
       li {
         margin: 0 10px;
+        
         a {
           color: $white-color;
           text-decoration: none;
+          
           &:hover {
             color: $tequila;
           }
+          
+        }
+        .active-link {
+          color: $link-water;
         }
       }
 

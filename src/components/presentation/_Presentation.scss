@@ -192,6 +192,32 @@
         }
       }
     }
+
+    .chiffres {
+      width: 100%;
+      h1 {
+        font-size: 3rem;
+      }
+
+      .stat {
+        .statCard {
+          gap: 1.5em;
+          .chiffre {
+            gap: 1px;
+
+            span {
+              font-size: 2em;
+            }
+          }
+
+          .statText {
+            p {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -238,6 +264,60 @@
             font-size: 1.3rem;
           }
           font-size: 0.8rem;
+        }
+      }
+    }
+
+    .chiffres {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        padding: 2rem 2rem 4rem;
+        font-size: 1.2em;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        gap: 1rem;
+
+        .statCard {
+          margin: 0 .5rem;
+          background-color: salmon;
+          display: flex;
+          flex-direction: column;
+          // justify-content: space-between;
+          text-align: center;
+          gap: .2em;
+
+          .chiffre {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .1em;
+
+            span {
+              text-transform: uppercase;
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+
+          .statText {
+            width: 100%;
+            display: flex;
+            // flex: 1;
+            flex-direction: row;
+            // align-items: center;
+            justify-content: center;
+
+            p {
+              font-size: 1rem;
+            }
+          }
         }
       }
     }

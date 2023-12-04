@@ -3,7 +3,7 @@
 .intro {
   padding: 2rem;
   width: 100%;
-  min-width: 900px;
+  // min-width: 90px;
   display: grid;
   grid-template-rows: auto;
   justify-items: center;
@@ -152,7 +152,7 @@
 }
 
 /* Media query pour le redimensionnement dynamique */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 936px) {
   .intro {
     min-width: 450px;
 
@@ -273,7 +273,7 @@
       display: flex;
       flex-direction: column;
       h1 {
-        padding: 2rem 2rem 4rem;
+        padding: 2rem 2rem 0;
         font-size: 1.2em;
       }
 
@@ -285,7 +285,7 @@
 
         .statCard {
           margin: 0 .5rem;
-          background-color: salmon;
+          // background-color: salmon;
           display: flex;
           flex-direction: column;
           // justify-content: space-between;

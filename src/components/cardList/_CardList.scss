@@ -66,8 +66,9 @@
 }
 
 /* Media query pour le redimensionnement dynamique */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 936px) {
   .cardlist {
+
     grid-template-columns: repeat(2, 1fr); /* Passer à 2 colonnes sur les écrans plus petits */
   }
 }

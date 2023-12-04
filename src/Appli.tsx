@@ -1,9 +1,9 @@
 import "./scss/main.scss";
 import React from "react";
-import Carousel from "./Carousel";
 import Dessin from "./assets/img/Rue.jpg";
 import Enfants from "./assets/img/Draw.jpg";
 import Rue from "./assets/img/Enfants.jpg";
+import Carousel from "./Components/Carousel";
 
 
   const images = [

@@ -1,0 +1,325 @@
+// qui est Carl ?
+
+.intro {
+  padding: 2rem;
+  width: 100%;
+  // min-width: 90px;
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  // justify-content: center;
+
+  margin-top: 0;
+  padding-top: 1rem;
+  background-color: $boston-blue;
+
+  .message {
+    // background-color: salmon;
+    position: relative;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 620px;
+    padding-bottom: 3rem;
+
+    svg {
+      // transform: translateY(15px);
+      position: absolute;
+      opacity: 0.1;
+    }
+
+    p {
+      // width: 100%;
+      padding: 5em 0 0;
+      text-align: center;
+      font-size: 1.5rem;
+      // font-size: 22px;
+      font-style: italic;
+      font-weight: 500;
+      color: whitesmoke;
+    }
+    span {
+      padding-bottom: 0.5em;
+      color: white;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+  }
+
+  .images {
+    position: relative;
+    max-width: auto;
+
+    .imageflex {
+      display: flex;
+      flex: 1;
+      justify-content: start;
+
+      img {
+        position: absolute;
+        min-width: 60%;
+        max-height: 80%;
+        object-fit: cover; /* L'effet zoom cover */
+      }
+    }
+
+    .imageflex2 {
+      display: flex;
+      flex: 1;
+      justify-content: end;
+
+      .textimage {
+        color: $boston-blue;
+        position: relative;
+        width: 60%;
+        // margin-left: 16rem;
+        margin-top: 5rem;
+        background-color: $selago;
+        // padding: 3rem 6rem;
+        padding: 2% 4%;
+        // max-width: 60%;
+
+        p {
+          text-align: justify;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  .chiffres {
+    width: 100%;
+    h1 {
+      text-align: center;
+      padding: 6rem 3rem 3rem;
+      color: $selago;
+      font-size: 4rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      height: 60vh;
+
+      .statCard {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        text-align: center;
+        gap: 3em;
+
+        .chiffre {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 3px;
+
+          span {
+            text-transform: uppercase;
+            font-size: 2.5em;
+            font-weight: bold;
+          }
+        }
+
+        .statText {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .card1 {
+        color: $tequila;
+      }
+      .card2 {
+        color: $onahau;
+      }
+      .card3 {
+        color: $vanilla-ice;
+      }
+    }
+  }
+}
+
+/* Media query pour le redimensionnement dynamique */
+@media screen and (max-width: 936px) {
+  .intro {
+    min-width: 450px;
+
+    .message {
+      p {
+        padding: 3em 1em 0;
+        font-size: 20px;
+      }
+    }
+
+    .images {
+      position: static;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      .imageflex {
+        display: block;
+
+        img {
+          margin: 0;
+          padding: 0;
+          position: static;
+          min-width: 100%;
+          max-height: 16em;
+        }
+      }
+      .imageflex2 {
+        display: block;
+
+        .textimage {
+          margin: 0;
+          padding: 1rem 3rem;
+          position: static;
+          width: auto;
+        }
+      }
+    }
+
+    .chiffres {
+      width: 100%;
+      h1 {
+        font-size: 3rem;
+      }
+
+      .stat {
+        .statCard {
+          gap: 1.5em;
+          .chiffre {
+            gap: 1px;
+
+            span {
+              font-size: 2em;
+            }
+          }
+
+          .statText {
+            p {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media query pour le redimensionnement dynamique */
+@media screen and (max-width: 550px) {
+  .intro {
+    min-width: 225px;
+    margin: 0;
+    padding: 0;
+
+    .message {
+      p {
+        padding: 2em 1em 0;
+        font-size: 16px;
+      }
+    }
+
+    .images {
+      position: static;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      .imageflex {
+        display: block;
+
+        img {
+          margin: 0;
+          padding: 0;
+          position: static;
+          min-width: 100%;
+        }
+      }
+      .imageflex2 {
+        display: block;
+
+        .textimage {
+          position: static;
+          width: auto;
+          margin: 0;
+          padding: 1rem;
+          h1 {
+            font-size: 1.3rem;
+          }
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .chiffres {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        padding: 2rem 2rem 0;
+        font-size: 1.2em;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        gap: 1rem;
+
+        .statCard {
+          margin: 0 .5rem;
+          // background-color: salmon;
+          display: flex;
+          flex-direction: column;
+          // justify-content: space-between;
+          text-align: center;
+          gap: .2em;
+
+          .chiffre {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .1em;
+
+            span {
+              text-transform: uppercase;
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+
+          .statText {
+            width: 100%;
+            display: flex;
+            // flex: 1;
+            flex-direction: row;
+            // align-items: center;
+            justify-content: center;
+
+            p {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

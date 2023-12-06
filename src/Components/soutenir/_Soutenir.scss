@@ -4,10 +4,12 @@
   background-color: $boston-blue;
 
   color: $white-color;
+  padding-top: 90px;
 
   @media (max-width: 480px) {
     display: flex;
     flex-direction: column;
+    padding-top: 0;
   }
 
   &-intro {
@@ -26,6 +28,7 @@
       letter-spacing: 0em;
       line-height: 56px;
       font-weight: 400;
+      margin-bottom: 20px;
 
       @media (max-width: 480px) {
         font-size: 23px;

@@ -3,13 +3,16 @@
   src: url("../../fonts/Mada-Regular.woff2") format("woff2"),
     url("../../fonts/Mada-Bold.woff2") format("woff2");
 }
+
 @font-face {
   font-family: "Black-mango";
-  src: url("../../fonts/BlackMango-Regular.woff2") format("woff2"),
-    url("../../fonts/BlackMango-Bold.woff2") format("woff2");
+  src: url("https://static.wixstatic.com/ufonts/4b4019_8aa4dcb39e234084affdd3686abc5d3a/woff2/file.woff2");
 }
 
-// USAGE
+@font-face {
+  font-family: "ILoveGlitter";
+  src: url("https://static.wixstatic.com/ufonts/ee95ce_d215786284d548c69f4e6f44957232b1/woff2/file.woff2");
+}
 
 :root {
   font-family: "Mada";

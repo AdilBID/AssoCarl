@@ -5,6 +5,7 @@ import Carousel from "../Components/Carousel";
 import Dessin from "../assets/img/Draw.jpg";
 import Enfants from "../assets/img/Draw.jpg";
 import Rue from "../assets/img/Enfants.jpg";
+import Presentation from "../Components/presentation/Presentation";
 
 const images = [
   Dessin,
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
        <Carousel images={images} /> 
     </div>
       <CardList></CardList>
+      <Presentation></Presentation>
     </>
   );
 };

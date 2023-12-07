@@ -6,6 +6,7 @@ import Dessin from "../assets/img/Draw.jpg";
 import Enfants from "../assets/img/Enfants.jpg";
 import Rue from "../assets/img/Rue.jpg";
 import Presentation from "../Components/presentation/Presentation";
+import TemoignagesCard from "../Components/temoignage/Temoignage";
 
 const images: any = [
   { url: Dessin, text: "Texte pour Dessin", buttonLabel: "Bouton pour Dessin", buttonLink: "https://lien-pour-draw" },
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
     </div>
       <CardList></CardList>
       <Presentation></Presentation>
+      <TemoignagesCard></TemoignagesCard>
     </>
   );
 };

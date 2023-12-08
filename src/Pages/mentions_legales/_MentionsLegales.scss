@@ -1,0 +1,38 @@
+.mentions-legales-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  
+    display: flex; // Ajout de cette ligne
+    flex-direction: column; // Ajout de cette ligne
+    justify-content: center; // Ajout de cette ligne
+  
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    .section {
+      margin-bottom: 20px;
+  
+      h3 {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+      }
+    }
+  
+    .date {
+      font-style: italic;
+      color: #888;
+    }
+  }
+  

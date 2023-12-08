@@ -5,6 +5,7 @@ import Carousel from "../Components/caroussel/Carousel";
 import Dessin from "../assets/img/Draw.jpg";
 import Enfants from "../assets/img/Enfants.jpg";
 import Rue from "../assets/img/Rue.jpg";
+import Footer from "../Components/Footer/Footer";
 import Presentation from "../Components/presentation/Presentation";
 import TemoignagesCard from "../Components/temoignage/Temoignage";
 
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
       <CardList></CardList>
       <Presentation></Presentation>
       <TemoignagesCard></TemoignagesCard>
+      <Footer></Footer>
     </>
   );
 };

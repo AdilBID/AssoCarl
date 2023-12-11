@@ -8,6 +8,7 @@ import Rue from "../assets/img/Rue.jpg";
 import Footer from "../Components/Footer/Footer";
 import Presentation from "../Components/presentation/Presentation";
 import TemoignagesCard from "../Components/temoignage/Temoignage";
+import Formulaire from "../Components/Formulaire/Formulaire";
 
 const images: any = [
   { url: Dessin, text: "Texte pour Dessin", buttonLabel: "Bouton pour Dessin", buttonLink: "https://lien-pour-draw" },
@@ -19,13 +20,15 @@ const images: any = [
 const Home: React.FC = () => {
   return (
     <>
-    <div data-testid="slideWrapper" className="WB4GU7" aria-live="off">  
-       <Carousel images={images} /> 
-    </div>
+      <div data-testid="slideWrapper" className="WB4GU7" aria-live="off">
+        <Carousel images={images} />
+      </div>
       <CardList></CardList>
       <Presentation></Presentation>
       <TemoignagesCard></TemoignagesCard>
+      <Formulaire />
       <Footer></Footer>
+
     </>
   );
 };

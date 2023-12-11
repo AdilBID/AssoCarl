@@ -1,15 +1,10 @@
-import React, { ChangeEvent, FocusEvent, useEffect, useRef, useState } from 'react';
+import React, { FocusEvent, isValidElement, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Formulaire = () => {
 
   // recaptche 
   const [capVAl, setCapVal] = useState(null);
-
-  // const handleRecaptchaChange = () => {
-  //   // Cette fonction sera appelée lorsque l'état du reCAPTCHA change
-  //   console.log("reCAPTCHA value:");
-  // };
 
   // Définition de l'état initial des cases à cocher
   const [checkboxes, setCheckboxes] = useState({
@@ -60,29 +55,67 @@ const Formulaire = () => {
   }, [checkboxes, allUnChecked]);
 
   const formRef = useRef<HTMLFormElement>(null);
-
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleInputEvent = (event: React.ChangeEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement, Element>) => {
     const form = formRef.current;
+  
     if (form) {
       const inputs = form.querySelectorAll('input[required]');
       let isValid = true;
-
+  
       inputs.forEach((input) => {
         if (!(input instanceof HTMLInputElement) || !input.value.trim()) {
           isValid = false;
         } else {
           // Retirer la classe empty si le champ n'est pas vide
           input.classList.remove('empty');
+  
+          const { id, value } = input;
+  
+          // Validation spécifique pour le champ d'email
+          if (id === 'email') {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isValidEmail = emailRegex.test(value);
+  
+            if (!isValidEmail) {
+              input.classList.add('invalidMail');
+              isValid = false;
+            } else {
+              input.classList.remove('invalidMail');
+            }
+          }
+  
+          // Validation spécifique pour le champ de numéro de téléphone
+          if (id === 'portable') {
+            const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+            const isValidPhone = phoneRegex.test(value);
+  
+            if (!isValidPhone) {
+              input.classList.add('invalidTel');
+              isValid = false;
+            } else {
+              input.classList.remove('invalidTel');
+            }
+          }
         }
       });
-
-      // Mettez à jour l'état pour refléter si tous les champs sont remplis
+  
+      // Mettre à jour l'état du bouton seulement si tous les champs sont remplis et les validations sont réussies
       setButtonDisabled(!isValid);
     }
   };
-
+  
+  // Utilisez handleInputEvent pour les événements onChange et onBlur
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handleInputEvent(event);
+  };
+  
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement, Element>) => {
+    handleInputEvent(event);
+  };
+  
   const handleSubmit = (event: React.FormEvent) => {
     // Empêche la soumission par défaut du formulaire
     event.preventDefault();
@@ -93,58 +126,6 @@ const Formulaire = () => {
       form.submit();
     }
   };
-
-  // 6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R
-  function handleBlur(event: FocusEvent<HTMLInputElement, Element>): void {
-    const { id, value } = event.target;
-    console.log('value : ' + value);
-    console.log('id : ' + id);
-
-    let isInvalid = false;
-
-    // Vérifie si le champ est vide
-    const isEmpty = !value.trim();
-    console.log('isEmpty : ', isEmpty);
-
-    if (isEmpty) {
-      event.target.classList.add('empty');
-    } else {
-      event.target.classList.remove('empty');
-
-      // Validation spécifique pour le champ d'email
-      if (id === 'email') {
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // version simple
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        const isValidEmail = emailRegex.test(value);
-
-        if (!isValidEmail) {
-          // Mettez à jour l'état pour refléter si tous les champs sont remplis
-          event.target.classList.add('invalidMail');
-          isInvalid = true;
-        } else {
-          event.target.classList.remove('invalidMail');
-        }
-      }
-
-      // Validation spécifique pour le champ de numéro de téléphone
-      if (id === 'portable') {
-        const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-        const isValidPhone = phoneRegex.test(value);
-
-        if (!isValidPhone) {
-          event.target.classList.add('invalidTel');
-          isInvalid = true;
-        } else {
-          event.target.classList.remove('invalidTel');
-        }
-      }
-
-    }
-    // Mettre à jour l'état du bouton seulement si le champ d'email ou de téléphone est invalide
-    if (id === 'email' || id === 'portable') {
-      setButtonDisabled(isInvalid);
-    }
-  }
 
   return (
     <div className='containe'>
@@ -253,7 +234,7 @@ const Formulaire = () => {
               Quel type d'aide attendez-vous de notre part ?*
               <input id="aide" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
             </label>
-          </div>
+          </div> 
 
           <div className='mailto'>
             <div>
@@ -286,6 +267,7 @@ const Formulaire = () => {
           />
 
           <div className='button'>
+            {/* <button disabled={isButtonDisabled} onClick={handleSubmit}>ENVOYER</button> */}
             <button disabled={isButtonDisabled || allUnChecked || !capVAl} onClick={handleSubmit}>ENVOYER</button>
           </div>
 

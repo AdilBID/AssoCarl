@@ -197,22 +197,14 @@
             width: 100%;
             display: flex;
             flex-direction: row;
-            flex: 1;
+            // flex: 1;
             justify-content: center;
             gap: 0.5rem;
             align-items: center;
-            margin-left: 1rem;
           }
         }
       }
 
-      // .recaptcha {
-      //   display: flex;
-      //   flex-direction: row;
-      //   align-items: center;
-      //   justify-content: center;
-      //   margin-bottom: 3rem;
-      // }
       .g-recaptcha {
         display: flex;
         flex-direction: row;

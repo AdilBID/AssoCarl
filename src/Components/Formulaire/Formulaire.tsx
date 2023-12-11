@@ -264,12 +264,15 @@ const Formulaire = () => {
             </div>
           </div>
 
-          <ReCAPTCHA
-            sitekey="6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R"
-            onChange={(val: any) => setCapVal(val)}
-            theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
-            className="g-recaptcha" // Ajoutez la classe ici
-          />
+          <div className="g-recaptcha">
+            <ReCAPTCHA
+              sitekey="6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R"
+              onChange={(val: any) => setCapVal(val)}
+              theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
+               // Ajoutez la classe ici
+              //  className="g-recaptcha"
+            />
+          </div>
 
           <div className='button'>
             {/* <button disabled={isButtonDisabled} onClick={handleSubmit}>ENVOYER</button> */}

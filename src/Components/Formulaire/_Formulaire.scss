@@ -2,7 +2,8 @@
   // background-color: $boston-blue;
   background-color: $boston-blue;
   width: 100%;
-  padding: 0 20%;
+  padding-left: 20%;
+  padding-right: 20%;
   padding-top: 6rem;
   padding-bottom: 10rem;
   // font-family: "Black-mango";
@@ -212,7 +213,6 @@
         justify-content: center;
         margin-bottom: 3rem;
         transform: scale(0.9); /* Ajustez la valeur selon vos besoins */
-        transform-origin: 0 0; /* Ajustez selon votre préférence pour l'origine de la transformation */
       }
 
       .button {
@@ -250,6 +250,47 @@
             cursor: not-allowed; // Changez le curseur pour indiquer qu'il n'est pas cliquable
             opacity: 0.7; // Réduisez l'opacité pour indiquer qu'il est désactivé et survolé
           }
+        }
+      }
+    }
+  }
+}
+
+/* Media query pour le redimensionnement dynamique */
+@media screen and (max-width: 550px) {
+  .containe {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+
+    .formulaire {
+      padding: 0 1.5rem 5rem;
+      width: 100%;
+      margin: 0;
+
+      h1 {
+        padding: 2.5rem 0;
+        font-size: 1.3rem;
+      }
+
+      form {
+        .flex {
+          display: flex;
+          flex-direction: column;
+          // flex: 1;
+          // justify-content: space-between;
+          gap: 1.5rem;
+        }
+
+        .flex2 {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .g-recaptcha {
+          transform: scale(0.7);
         }
       }
     }

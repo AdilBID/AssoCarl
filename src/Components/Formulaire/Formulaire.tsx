@@ -1,4 +1,4 @@
-import React, { FocusEvent, isValidElement, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const Formulaire = () => {
@@ -60,25 +60,30 @@ const Formulaire = () => {
 
   const handleInputEvent = (event: React.ChangeEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement, Element>) => {
     const form = formRef.current;
-  
+
     if (form) {
-      const inputs = form.querySelectorAll('input[required]');
+      const inputs = form.querySelectorAll('input[required]'); // all inputs
       let isValid = true;
-  
+
       inputs.forEach((input) => {
         if (!(input instanceof HTMLInputElement) || !input.value.trim()) {
-          isValid = false;
+          isValid = false; // si un input vide 
+
+          // Ajouter la classe 'empty' à l'élément actuel
+          if (input === event.target) {
+            input.classList.add('empty');
+          }
         } else {
           // Retirer la classe empty si le champ n'est pas vide
           input.classList.remove('empty');
-  
+
           const { id, value } = input;
-  
+
           // Validation spécifique pour le champ d'email
           if (id === 'email') {
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             const isValidEmail = emailRegex.test(value);
-  
+
             if (!isValidEmail) {
               input.classList.add('invalidMail');
               isValid = false;
@@ -86,12 +91,12 @@ const Formulaire = () => {
               input.classList.remove('invalidMail');
             }
           }
-  
+
           // Validation spécifique pour le champ de numéro de téléphone
           if (id === 'portable') {
             const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
             const isValidPhone = phoneRegex.test(value);
-  
+
             if (!isValidPhone) {
               input.classList.add('invalidTel');
               isValid = false;
@@ -101,21 +106,21 @@ const Formulaire = () => {
           }
         }
       });
-  
+
       // Mettre à jour l'état du bouton seulement si tous les champs sont remplis et les validations sont réussies
       setButtonDisabled(!isValid);
     }
   };
-  
+
   // Utilisez handleInputEvent pour les événements onChange et onBlur
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleInputEvent(event);
   };
-  
+
   const handleBlur = (event: React.FocusEvent<HTMLInputElement, Element>) => {
     handleInputEvent(event);
   };
-  
+
   const handleSubmit = (event: React.FormEvent) => {
     // Empêche la soumission par défaut du formulaire
     event.preventDefault();
@@ -234,7 +239,7 @@ const Formulaire = () => {
               Quel type d'aide attendez-vous de notre part ?*
               <input id="aide" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
             </label>
-          </div> 
+          </div>
 
           <div className='mailto'>
             <div>

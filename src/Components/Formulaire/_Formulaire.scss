@@ -101,6 +101,28 @@
             border-bottom: 3px solid red;
           }
         }
+        &.invalidMail {
+          border-top: 2px solid $selago;
+          border-bottom: 3px solid red;
+
+          &:focus {
+            border-bottom: 3px solid red;
+          }
+          &:hover {
+            border-bottom: 3px solid red;
+          }
+        }
+        &.invalidTel {
+          border-top: 2px solid $selago;
+          border-bottom: 3px solid red;
+
+          &:focus {
+            border-bottom: 3px solid red;
+          }
+          &:hover {
+            border-bottom: 3px solid red;
+          }
+        }
 
         &:hover {
           border-top: 2px solid $selago;
@@ -184,13 +206,21 @@
         }
       }
 
-      .recaptcha {
-        content: "";
+      // .recaptcha {
+      //   display: flex;
+      //   flex-direction: row;
+      //   align-items: center;
+      //   justify-content: center;
+      //   margin-bottom: 3rem;
+      // }
+      .g-recaptcha {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         margin-bottom: 3rem;
+        transform: scale(0.9); /* Ajustez la valeur selon vos besoins */
+        transform-origin: 0 0; /* Ajustez selon votre préférence pour l'origine de la transformation */
       }
 
       .button {

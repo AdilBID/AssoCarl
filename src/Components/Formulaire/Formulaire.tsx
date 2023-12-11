@@ -1,9 +1,10 @@
-// import { Checkbox } from '@mui/material'
-// import React from 'react'
+import React, { ChangeEvent, FocusEvent, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha'
-import React, { FocusEvent, useEffect, useRef, useState } from 'react';
 
 const Formulaire = () => {
+
+  // recaptche 
+  const [capVAl, setCapVal] = useState(null);
 
   // const handleRecaptchaChange = () => {
   //   // Cette fonction sera appelée lorsque l'état du reCAPTCHA change
@@ -37,14 +38,14 @@ const Formulaire = () => {
 
     console.log(result);
 
-     // Obtient une référence vers le formulaire
-     // Utilisez la référence formRef pour obtenir le formulaire
+    // Obtient une référence vers le formulaire
+    // Utilisez la référence formRef pour obtenir le formulaire
     const form = formRef.current;
-   
+
     // Vérifie si le formulaire existe 
     if (form) {
       // Sélectionne toutes les cases à cocher dans le formulaire
-      const inputs = form.querySelectorAll('.checkboxborder'); 
+      const inputs = form.querySelectorAll('.checkboxborder');
 
       // Parcourt chaque case à cocher et ajoute ou retire une classe 
       inputs.forEach((input) => {
@@ -62,7 +63,7 @@ const Formulaire = () => {
 
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
-  const handleInputChange = () => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const form = formRef.current;
     if (form) {
       const inputs = form.querySelectorAll('input[required]');
@@ -88,24 +89,60 @@ const Formulaire = () => {
 
     const form = formRef.current;
     if (form) {
-      
+
       form.submit();
     }
   };
 
+  // 6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R
   function handleBlur(event: FocusEvent<HTMLInputElement, Element>): void {
-    const { value } = event.target;
+    const { id, value } = event.target;
     console.log('value : ' + value);
+    console.log('id : ' + id);
+
+    let isInvalid = false;
 
     // Vérifie si le champ est vide
     const isEmpty = !value.trim();
     console.log('isEmpty : ', isEmpty);
 
-    console.log('event.target.classList : ' + event.target.classList);
     if (isEmpty) {
       event.target.classList.add('empty');
     } else {
       event.target.classList.remove('empty');
+
+      // Validation spécifique pour le champ d'email
+      if (id === 'email') {
+        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // version simple
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const isValidEmail = emailRegex.test(value);
+
+        if (!isValidEmail) {
+          // Mettez à jour l'état pour refléter si tous les champs sont remplis
+          event.target.classList.add('invalidMail');
+          isInvalid = true;
+        } else {
+          event.target.classList.remove('invalidMail');
+        }
+      }
+
+      // Validation spécifique pour le champ de numéro de téléphone
+      if (id === 'portable') {
+        const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+        const isValidPhone = phoneRegex.test(value);
+
+        if (!isValidPhone) {
+          event.target.classList.add('invalidTel');
+          isInvalid = true;
+        } else {
+          event.target.classList.remove('invalidTel');
+        }
+      }
+
+    }
+    // Mettre à jour l'état du bouton seulement si le champ d'email ou de téléphone est invalide
+    if (id === 'email' || id === 'portable') {
+      setButtonDisabled(isInvalid);
     }
   }
 
@@ -134,7 +171,11 @@ const Formulaire = () => {
           <div className='flex'>
             <label htmlFor="email">
               E-mail *
-              <input id="email" type="email" required onChange={handleInputChange} onBlur={handleBlur} />
+              <input
+                id="email"
+                type="email"
+                // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                required onChange={handleInputChange} onBlur={handleBlur} />
             </label>
             <label htmlFor="objet">
               Objet *
@@ -170,13 +211,19 @@ const Formulaire = () => {
 
             {/* TEL et AGE */}
             <div className='coord'>
-              <label htmlFor="Portable">
+              <label htmlFor="portable">
                 Votre téléphone*
-                <input id="Portable" type="tel" placeholder='Portable...' required onChange={handleInputChange} onBlur={handleBlur} />
+                <input id="portable" type="tel" placeholder='Portable...' required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
               <label htmlFor="age">
                 Votre âge et/ou celui de la victime*
-                <input id="age" type="text" placeholder='Indiquez-le ici' required onChange={handleInputChange} onBlur={handleBlur} />
+                <input
+                  id="age"
+                  type="number"
+                  placeholder='Indiquez-le ici'
+                  min="1"
+                  max="199"
+                  required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
             </div>
           </div>
@@ -231,18 +278,15 @@ const Formulaire = () => {
             </div>
           </div>
 
-          <div className='recaptcha'>
-            {/* Autres éléments de votre composant */}
-            {/* <div></div> */}
-            <ReCAPTCHA
-              sitekey="6LcbgyopAAAAANyr79ligc34FYet-2MMVCPLl4u3"
-              // onChange={handleRecaptchaChange}
-              theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
-            />
-          </div>
+          <ReCAPTCHA
+            sitekey="6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R"
+            onChange={(val: any) => setCapVal(val)}
+            theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
+            className="g-recaptcha" // Ajoutez la classe ici
+          />
 
           <div className='button'>
-            <button disabled={isButtonDisabled || allUnChecked} onClick={handleSubmit}>ENVOYER</button>
+            <button disabled={isButtonDisabled || allUnChecked || !capVAl} onClick={handleSubmit}>ENVOYER</button>
           </div>
 
         </form>

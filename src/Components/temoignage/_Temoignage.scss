@@ -1,0 +1,58 @@
+.temoignages-cards-container {
+  display: flex;
+  background-color: $boston-blue;
+  justify-content: space-evenly;
+  padding: 30px 0;
+  flex-wrap: wrap;
+
+  .temoignage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 30px 10px;
+
+    &-symbol {
+      justify-content: center;
+      width: 60px;
+      height: 100%;
+      margin: 30px 0;
+    }
+
+    &-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 400;
+      font-family: "Black-mango";
+      min-height: 50px;
+      margin-bottom: 30px;
+    }
+
+    &-description {
+      font-size: 16px;
+      line-height: 1.8em;
+      text-align: justify;
+      min-height: 380px;
+    }
+
+    &:nth-child(1) {
+      color: $tequila;
+      path {
+        fill: $tequila;
+      }
+    }
+    &:nth-child(2) {
+      color: $vanilla-ice;
+      path {
+        fill: $vanilla-ice;
+      }
+    }
+    &:nth-child(3) {
+      color: $onahau;
+      path {
+        fill: $onahau;
+      }
+    }
+  }
+}

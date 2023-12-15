@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha'
+import { Formik, Field, Form } from 'formik';
 
 const Formulaire = () => {
 
@@ -79,18 +80,18 @@ const Formulaire = () => {
 
           const { id, value } = input;
 
-          // Validation spécifique pour le champ d'email
-          if (id === 'email') {
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            const isValidEmail = emailRegex.test(value);
+          // // Validation spécifique pour le champ d'email
+          // if (id === 'email') {
+          //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          //   const isValidEmail = emailRegex.test(value);
 
-            if (!isValidEmail) {
-              input.classList.add('invalidMail');
-              isValid = false;
-            } else {
-              input.classList.remove('invalidMail');
-            }
-          }
+          //   if (!isValidEmail) {
+          //     input.classList.add('invalidMail');
+          //     isValid = false;
+          //   } else {
+          //     input.classList.remove('invalidMail');
+          //   }
+          // }
 
           // Validation spécifique pour le champ de numéro de téléphone
           if (id === 'portable') {
@@ -133,6 +134,8 @@ const Formulaire = () => {
   };
 
   return (
+
+
     <div className='containe'>
       <div className='formulaire'>
 
@@ -140,146 +143,148 @@ const Formulaire = () => {
           <h1>Besoin d'aide ?</h1>
         </div>
 
-        <form ref={formRef} className='monFormulaire' onSubmit={handleSubmit}>
-          {/* // NOM PRENOM */}
-          <div className='flex'>
-            <label htmlFor="prenom">
-              Prénom *
-              <input id="prenom" name='prenom' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="nom">
-              Nom de famille *
-              <input id="nom" name='nom' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-          </div>
-
-          {/* // email objet */}
-          <div className='flex'>
-            <label htmlFor="email">
-              E-mail *
-              <input
-                id="email"
-                type="email"
-                // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
-                required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="objet">
-              Objet *
-              <input id="objet" name='objet' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-          </div>
-
-          {/* checkbox */}
-          <div className='flex2'>
-            <div className='checkbox'>
-              Vous êtes:*
-              <label htmlFor="victime">
-                <input className='checkboxborder' id="victime" type="checkbox" name="victime" defaultChecked onChange={handleChange} />
-                Victime
+          <form ref={formRef} className='monFormulaire' onSubmit={handleSubmit}>
+            {/* // NOM PRENOM */}
+            <div className='flex'>
+              <label htmlFor="prenom">
+                Prénom *
+                <input id="prenom" name='prenom' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
-              <label htmlFor="victime1">
-                <input className='checkboxborder' id="victime1" type="checkbox" name="victime1" defaultChecked onChange={handleChange} />
-                Parent d'une victime
-              </label>
-              <label htmlFor="victime2">
-                <input className='checkboxborder' id="victime2" type="checkbox" name="victime2" onChange={handleChange} />
-                Proche d'une victime
-              </label>
-              <label htmlFor="victime3">
-                <input className='checkboxborder' id="victime3" type="checkbox" name="victime3" onChange={handleChange} />
-                Professionel
-              </label>
-              <label htmlFor="victime4">
-                <input className='checkboxborder' id="victime4" type="checkbox" name="victime4" onChange={handleChange} />
-                Autre
+              <label htmlFor="nom">
+                Nom de famille *
+                <input id="nom" name='nom' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
             </div>
 
-            {/* TEL et AGE */}
-            <div className='coord'>
-              <label htmlFor="portable">
-                Votre téléphone*
-                <input id="portable" type="tel" placeholder='Portable...' required onChange={handleInputChange} onBlur={handleBlur} />
-              </label>
-              <label htmlFor="age">
-                Votre âge et/ou celui de la victime*
+            {/* // email objet */}
+            <div className='flex'>
+
+              <label htmlFor="email">
+                E-mail *
                 <input
-                  id="age"
-                  type="number"
-                  placeholder='Indiquez-le ici'
-                  min="1"
-                  max="199"
+                  id="email"
+                  type="email"
+                  // pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
                   required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="ville">
-              Merci d'indiquer la ville et la région concernée*
-              <input id="ville" type="text" placeholder="J'habite OU il/elle habite" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="situation">
-              Résumé de la situation...*
-              <input id="situation" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="procédures">
-              Des procédures judiciaires sont-elles en cours ? Des antécédents ? Si oui, lesquels ?*
-              <input id="procédures" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="psychologique">
-              Un suivi psychologique a-t-il été mis en place ? Si oui, lequel et depuis quand ?*
-              <input id="psychologique" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="avocat">
-              Un avocat a-t-il été désigné ? Si oui, qui et en êtes-vous (ou la victime) satisfait(e) ?*
-              <input id="avocat" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-            <label htmlFor="aide">
-              Quel type d'aide attendez-vous de notre part ?*
-              <input id="aide" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
-            </label>
-          </div>
-
-          <div className='mailto'>
-            <div>
-              Si vous souhaitez témoigner, merci d'adresser votre témoignage écrit ou vidéo (avec lien wetransfer à&nbsp;
-              <a
-                href="mailto:contact@associationcarl.com"> contact@associationcarl.com
-              </a>
-              ) en précisant si vous souhaitez, ou non, rester anonyme.
-            </div>
-            <div>
-              Pour toute proposition de partenariat pour nous reverser des fonds,
-              merci de nous écrire directement à&nbsp;
-              <a
-                href="mailto:contact@associationcarl.com">contact@associationcarl.com
-              </a>
-            </div>
-            <div className='newsletter'>
-              <label htmlFor="newsletter">
-                <input className='newslettercheckbox' id="newsletter" type="checkbox" name="newsletter" value="newsletter" />
-                Je veux m'inscrire à la newsletter.
+              <label htmlFor="objet">
+                Objet *
+                <input id="objet" name='objet' type="text" required onChange={handleInputChange} onBlur={handleBlur} />
               </label>
             </div>
-          </div>
 
-          <div className="g-recaptcha">
-            <ReCAPTCHA
-              sitekey="6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R"
-              onChange={(val: any) => setCapVal(val)}
-              theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
-               // Ajoutez la classe ici
+            {/* checkbox */}
+            <div className='flex2'>
+              <div className='checkbox'>
+                Vous êtes:*
+                <label htmlFor="victime">
+                  <input className='checkboxborder' id="victime" type="checkbox" name="victime" defaultChecked onChange={handleChange} />
+                  Victime
+                </label>
+                <label htmlFor="victime1">
+                  <input className='checkboxborder' id="victime1" type="checkbox" name="victime1" defaultChecked onChange={handleChange} />
+                  Parent d'une victime
+                </label>
+                <label htmlFor="victime2">
+                  <input className='checkboxborder' id="victime2" type="checkbox" name="victime2" onChange={handleChange} />
+                  Proche d'une victime
+                </label>
+                <label htmlFor="victime3">
+                  <input className='checkboxborder' id="victime3" type="checkbox" name="victime3" onChange={handleChange} />
+                  Professionel
+                </label>
+                <label htmlFor="victime4">
+                  <input className='checkboxborder' id="victime4" type="checkbox" name="victime4" onChange={handleChange} />
+                  Autre
+                </label>
+              </div>
+
+              {/* TEL et AGE */}
+              <div className='coord'>
+                <label htmlFor="portable">
+                  Votre téléphone*
+                  <input id="portable" type="tel" placeholder='Portable...' required onChange={handleInputChange} onBlur={handleBlur} />
+                </label>
+                <label htmlFor="age">
+                  Votre âge et/ou celui de la victime*
+                  <input
+                    id="age"
+                    type="number"
+                    placeholder='Indiquez-le ici'
+                    min="1"
+                    max="199"
+                    required onChange={handleInputChange} onBlur={handleBlur} />
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="ville">
+                Merci d'indiquer la ville et la région concernée*
+                <input id="ville" type="text" placeholder="J'habite OU il/elle habite" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+              <label htmlFor="situation">
+                Résumé de la situation...*
+                <input id="situation" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+              <label htmlFor="procédures">
+                Des procédures judiciaires sont-elles en cours ? Des antécédents ? Si oui, lesquels ?*
+                <input id="procédures" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+              <label htmlFor="psychologique">
+                Un suivi psychologique a-t-il été mis en place ? Si oui, lequel et depuis quand ?*
+                <input id="psychologique" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+              <label htmlFor="avocat">
+                Un avocat a-t-il été désigné ? Si oui, qui et en êtes-vous (ou la victime) satisfait(e) ?*
+                <input id="avocat" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+              <label htmlFor="aide">
+                Quel type d'aide attendez-vous de notre part ?*
+                <input id="aide" type="text" placeholder="Ajouter votre réponse ici" required onChange={handleInputChange} onBlur={handleBlur} />
+              </label>
+            </div>
+
+            <div className='mailto'>
+              <div>
+                Si vous souhaitez témoigner, merci d'adresser votre témoignage écrit ou vidéo (avec lien wetransfer à&nbsp;
+                <a
+                  href="mailto:contact@associationcarl.com"> contact@associationcarl.com
+                </a>
+                ) en précisant si vous souhaitez, ou non, rester anonyme.
+              </div>
+              <div>
+                Pour toute proposition de partenariat pour nous reverser des fonds,
+                merci de nous écrire directement à&nbsp;
+                <a
+                  href="mailto:contact@associationcarl.com">contact@associationcarl.com
+                </a>
+              </div>
+              <div className='newsletter'>
+                <label htmlFor="newsletter">
+                  <input className='newslettercheckbox' id="newsletter" type="checkbox" name="newsletter" value="newsletter" />
+                  Je veux m'inscrire à la newsletter.
+                </label>
+              </div>
+            </div>
+
+            <div className="g-recaptcha">
+              <ReCAPTCHA
+                sitekey="6LdqdC0pAAAAAFwlqB4fKyVTfLEUB5qOEArQpP3R"
+                onChange={(val: any) => setCapVal(val)}
+                theme="light" // Vous pouvez utiliser "light" ou "dark" selon vos préférences
+              // Ajoutez la classe ici
               //  className="g-recaptcha"
-            />
-          </div>
+              />
+            </div>
 
-          <div className='button'>
-            {/* <button disabled={isButtonDisabled} onClick={handleSubmit}>ENVOYER</button> */}
-            <button disabled={isButtonDisabled || allUnChecked || !capVAl} onClick={handleSubmit}>ENVOYER</button>
-          </div>
+            <div className='button'>
+              {/* <button disabled={isButtonDisabled} onClick={handleSubmit}>ENVOYER</button> */}
+              <button disabled={isButtonDisabled || allUnChecked || !capVAl} onClick={handleSubmit}>ENVOYER</button>
+            </div>
 
-        </form>
+          </form>
+
 
       </div>
     </div>

@@ -1,5 +1,4 @@
 // qui est Carl ?
-
 .intro {
   padding: 2rem;
   width: 100%;
@@ -17,7 +16,7 @@
   .message {
     // background-color: salmon;
     position: relative;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: "Black-mango";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +34,7 @@
       // width: 100%;
       padding: 5em 0 0;
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 2rem;
       // font-size: 22px;
       font-style: italic;
       font-weight: 500;
@@ -52,6 +51,7 @@
   .images {
     position: relative;
     max-width: auto;
+    padding: 0 5rem;
 
     .imageflex {
       display: flex;
@@ -70,6 +70,10 @@
       display: flex;
       flex: 1;
       justify-content: end;
+      
+      h1{
+        font-family: "Black-mango";
+      }
 
       .textimage {
         color: $boston-blue;
@@ -92,18 +96,20 @@
 
   .chiffres {
     width: 100%;
+    margin-bottom: 2rem;
     h1 {
       text-align: center;
       padding: 6rem 3rem 3rem;
       color: $selago;
       font-size: 4rem;
+      font-family: "Black-mango";
     }
 
     .stat {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      height: 60vh;
+      max-height: 60vh;
 
       .statCard {
         display: flex;
@@ -275,29 +281,30 @@
       h1 {
         padding: 2rem 2rem 0;
         font-size: 1.2em;
+        margin-bottom: 1rem;
       }
 
       .stat {
         display: flex;
         flex-direction: column;
         // justify-content: space-around;
-        gap: 1rem;
+        gap: 2.5rem;
 
         .statCard {
-          margin: 0 .5rem;
+          margin: 0 0.5rem;
           // background-color: salmon;
           display: flex;
           flex-direction: column;
           // justify-content: space-between;
           text-align: center;
-          gap: .2em;
+          gap: 0.2em;
 
           .chiffre {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: .1em;
+            gap: 0.1em;
 
             span {
               text-transform: uppercase;
@@ -309,8 +316,7 @@
           .statText {
             width: 100%;
             display: flex;
-            // flex: 1;
-            flex-direction: row;
+            flex-direction: column;
             // align-items: center;
             justify-content: center;
 

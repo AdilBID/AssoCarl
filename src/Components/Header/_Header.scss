@@ -96,7 +96,7 @@ nav {
         text-decoration: none;
 
         &:not(.active-link):hover {
-          color: red;
+          color: $tequila;
         }
       }
       .active-link {

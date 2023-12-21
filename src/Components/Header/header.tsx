@@ -5,7 +5,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 
-import logo from "../../assets/logo_carl.webp";
+import logo from "../../assets/logo_carl.png";
 import facebook from "../../assets/logo_facebook.webp";
 import instagram from "../../assets/logo_insta.webp";
 import twitter from "../../assets/logo_twitter.webp";

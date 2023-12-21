@@ -6,10 +6,10 @@ export default class Presentation extends Component {
       <div className="intro">
         <div className="message">
           <p>
-            " Au-delà d'être un hommage à celui qui n'était pas mon fils mais que j'aimais tout autant, l'Association Carl est avant tout une association d'aide aux victimes ainsi qu'un véritable porte-paroles pour celles et ceux qui cherchent une aide pour avancer. "
+          " La vie par son essence nous offre des expériences différentes, face à certaines situations je me suis sentie impuissante. Je veux m'offrir les moyens d'agir à moi ainsi qu'à toutes les personnes engagées avec nous dans cette aventure, la pouvoir d'agir face aux différentes injustices de la vie. L'accès à l'éducation, la santé et l'emploi ne doit plus être un luxe même pour les démunis et désœuvrés."
           </p>
           <br />
-          <span>Steffy</span>
+          <span></span>
           <span>Fondatrice & Présidente</span>
           <svg className='svgcolor' preserveAspectRatio="xMidYMid meet" data-bbox="12.5 19.999 175 160.002" viewBox="12.5 19.999 175 160.002" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label="">
             <g>
@@ -43,44 +43,49 @@ export default class Presentation extends Component {
           <div className="stat">
             <div className="statCard card1">
               <div className="chiffre">
-                <span>1</span>
-                <span>Enfant</span>
-                <span>sur 10</span>
+                <span>Nord-Ouest</span>
+                <span>et</span>
+                <span>Sud-Ouest</span>
               </div>
 
-              <div className='statText'>
-                <p>est victime</p>
-                <p>D'INCESTE</p>
+              <div>
+                <p>2.245 écoles</p>
+                <p>ne fonctionnent</p>
+                <p>toujours pas</p>
+                <a className='statCard card1' href="https://news.un.org/fr/story/2023/10/1140102">source: ONU Info</a>
               </div>
             </div>
 
             <div className="statCard card2">
               <div className="chiffre">
-                <span>1</span>
-                <span>Enfant</span>
-                <span>sur 4</span>
+                <span>Région</span>
+                <span>de</span>
+                <span>Extrême-Nord</span>
               </div>
 
-              <div className='statText'>
-                <p>subit des violences</p>
-                <p>PHYSIQUES</p>
+              <div >
+                <p>482.000 enfants</p>
+                <p>ont besoin d'aide</p>
+                <p>humanitaire</p>
+                <a className='statCard card2' href="https://news.un.org/fr/story/2023/10/1140102">source: ONU Info</a>
               </div>
             </div>
             <div className="statCard card3">
               <div className="chiffre">
                 <span>+ DE</span>
-                <span>143 000</span>
+                <span>1,4 million</span>
                 <span>ENFANTS</span>
               </div>
 
-              <div className='statText'>
-                <p>sont chaque année témoins</p>
-                <p>de violences conjugales</p>
+              <div >
+                <p>Ont besoin </p>
+                <p>d’une assistance</p><br/>
+             
+                <a className='statCard card3' href="https://reliefweb.int/report/cameroon/14-million-denfants-dage-scolaire-au-cameroun-ont-besoin-dacceder-une-education-de-qualite">Source: reliefweb.int</a>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     )
   }

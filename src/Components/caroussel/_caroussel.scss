@@ -66,25 +66,36 @@
   font-size: 83px;
   line-height: 1.1em;
   color: white;
-  background-color: #007bff;
+  background-color: rgba(190, 211, 195, 0.5);
   position: relative;
   animation: slideIn 1s ease-in-out forwards; /* L'animation dure 1 seconde et utilise ease-in-out */
 }
 
 /* Style du lien dans l'overlay */
 .overlay-content a {
-    display: inline-block;
-    background-color: #007bff; /* Couleur du fond du bouton */
-    border-radius: 5px;
-    margin-top: 20px; /* Espace entre le texte et le lien */
-    padding: 10px 20px;
-    color: white; /* Couleur du texte du bouton */
-    text-decoration: none;
-    position: relative;
-    opacity: 0;
-    transform: translateX(50px);
-    animation: fadeInUp 2s ease 4ms forwards;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px; /* Espace entre le texte et le lien */
+  padding: 10px 20px;
+  color: white; /* Couleur du texte du bouton */
+  text-decoration: none;
+  position: relative;
+  opacity: 0;
+  transform: translateX(50px);
+  animation: fadeInUp 2s ease 4ms forwards;
+  
+  // Conditional background color based on currentIndex
+  background-color: #EBACA2; // Default background color
+  
+  // Change background color based on currentIndex
+  &.active {
+    background-color: #CE6A6B; // Change to #CE6A6B when active
   }
+
+  &.next {
+    background-color: #212E53; // Change to #780A0C when next
+  }
+}
 
   @keyframes fadeInUp{
     from{
@@ -99,7 +110,7 @@
   .overlay-content.slide-animation p {
     animation: slideIn 2s ease-in-out 4ms forwards;
   }
-
+  
   @keyframes slideIn {
     from {
       opacity: 0;

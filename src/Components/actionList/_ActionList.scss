@@ -1,0 +1,214 @@
+.support {
+  //display: grid;
+  //grid-template-columns: repeat(12, 1fr);
+  background-color: $boston-blue;
+
+  color: $white-color;
+
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//  &-intro {
+//    //grid-column: 2/6;
+//    justify-self: center;
+//    padding-right: 30px;
+//    color: $tequila;
+//    @media (max-width: 480px) {
+//      grid-column: none;
+//      padding: 20px;
+//    }
+//
+//    h1 {
+//      font-family: "Black-mango";
+//      font-size: 40px;
+//      letter-spacing: 0em;
+//      line-height: 56px;
+//      font-weight: 400;
+//
+//      @media (max-width: 480px) {
+//        font-size: 23px;
+//        line-height: 32px;
+//      }
+//    }
+//    p {
+//      font-size: 16px;
+//      line-height: 28px;
+//      font-weight: 400;
+//    }
+//  }
+//
+//  &-options {
+//    grid-column: 6/11;
+//    justify-self: center;
+//    @media (max-width: 480px) {
+//      grid-column: none;
+//    }
+//
+//    .support-item {
+//      padding: 20px;
+//      h2 {
+//        font-family: "Black-mango";
+//        font-size: 30px;
+//        letter-spacing: 0em;
+//        line-height: 42px;
+//        font-weight: 400;
+//        color: $tequila;
+//        text-decoration: underline;
+//
+//        @media (max-width: 480px) {
+//          font-size: 21px;
+//          line-height: 29px;
+//        }
+//        a {
+//          text-decoration: none;
+//          color: $tequila;
+//        }
+//      }
+//
+//      h3 {
+//        font-family: "ILoveGlitter";
+//        font-size: 23px;
+//        letter-spacing: 0em;
+//        line-height: 42px;
+//        font-weight: 400;
+//        @media (max-width: 480px) {
+//          font-size: 23px;
+//          line-height: 42px;
+//        }
+//      }
+//      p {
+//        font-size: 16px;
+//        line-height: 32px;
+//        font-weight: 400;
+//      }
+//
+//      .highlighted-text {
+//        color: $tequila;
+//      }
+//
+//      .email-link {
+//        text-decoration: none;
+//        color: $tequila;
+//        font-style: italic;
+//        font-weight: 600;
+//      }
+//      .special-text {
+//        color: $tequila;
+//      }
+//
+//      .thinking-text {
+//        color: $tequila;
+//        font-weight: bold;
+//      }
+//
+//      .warning {
+//        font-style: italic;
+//      }
+//    }
+//  }
+//}
+
+
+
+//nav {
+//  background-color: $boston-blue;
+//
+//  .mobile-menu-icon {
+//    display: none;
+//    cursor: pointer;
+//
+//    @media (max-width: 768px) {
+//      display: block;
+//      position: absolute;
+//      top: 0;
+//      right: 0;
+//      padding: 10px;
+//    }
+//  }
+//}
+
+//// CARDLIST
+//.cardlist {
+//  width: 100%;
+//  display: grid;
+//  grid-template-columns: repeat(4, 1fr);
+//  min-height: 27rem;
+//
+//  .card {
+//    max-height: 28rem;
+//    min-width: 225px;
+//    margin: 0;
+//    display: grid;
+//    grid-template-rows: 10em 4em 1fr;
+//    justify-items: center;
+//  }
+//
+//  .svgcolor {
+//    fill: $boston-blue;
+//  }
+//
+//  .flexsvg {
+//    display: flex;
+//    flex: 1;
+//    align-items: center;
+//    margin: 4rem 0 2rem 0;
+//  }
+//
+//  svg {
+//    width: 4.6em;
+//  }
+//
+//  a {
+//    color: #377bc7;
+//    font-size: 1.1em;
+//    text-transform: uppercase;
+//    text-decoration: underline;
+//    text-align: center;
+//  }
+//
+//  .text {
+//    width: 220px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
+//    text-align: center;
+//    padding: 0 .95em;
+//    font-size: 1rem;
+//  }
+//
+//  .actions {
+//    color: #377bc7;
+//    background: #c7f0fe;
+//  }
+//
+//  .aide {
+//    color: #377bc7;
+//    background: #ffe7cb;
+//  }
+//
+//  .partenaire {
+//    color: #377bc7;
+//    background: #f7e5e7;
+//  }
+//
+//  .temoigner {
+//    color: #377bc7;
+//    background: #cbd7f2;
+//  }
+//}
+//
+///* Media query pour le redimensionnement dynamique */
+//@media screen and (max-width: 936px) {
+//  .cardlist {
+//
+//    grid-template-columns: repeat(2, 1fr); /* Passer à 2 colonnes sur les écrans plus petits */
+//  }
+//}
+//
+///* Media query pour le redimensionnement dynamique */
+//@media screen and (max-width: 550px) {
+//  .cardlist {
+//    display: flex;
+//    flex-direction: column; /* Passer à 2 colonnes sur les écrans plus petits */
+//  }
+//}

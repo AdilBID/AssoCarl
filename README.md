@@ -8,6 +8,7 @@ Installer le projet
 
 ```bash
   git clone https://github.com/AdilBID/AssoCarl.git
+  cd AssoCarl
   npm install
 ```
 

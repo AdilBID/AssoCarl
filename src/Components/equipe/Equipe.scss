@@ -1,0 +1,96 @@
+.asso__equipe {
+  display: flex;
+  flex-direction: column;
+  background-color: #377bc7;
+  color: #fefeff;
+}
+.header-nav {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.asso__equipe-heading {
+  width: 100%;
+  text-align: left;
+  margin-top: 5rem;
+  h1 {
+    justify-content: center;
+    text-align: center;
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+  }
+  h2 {
+    justify-content: center;
+    text-align: center;
+
+    margin-bottom: 1.5rem;
+  }
+  p {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.asso__equipe_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  //gap: 2rem;
+  // grid-gap: 7rem;
+  // flex-wrap: wrap;
+  //flex-direction: column;
+  justify-content: space-between;
+  width: 75%;
+  margin-left: 20rem;
+  margin-top: 8rem;
+
+  .asso__equipe_container-item {
+    //flex-basis: calc(50% - 20px);
+    //  margin-bottom: 20px;
+    //box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    margin-bottom: 3rem;
+  }
+}
+
+.asso__equipe_container-image {
+  width: 100%;
+}
+
+.asso__equipe_container-image img {
+  width: 405px;
+  height: 426px;
+}
+
+.asso__equipe_container-div {
+  //margin-left: 26rem; //1rem = 16px
+  //margin-top: -10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 0.1rem;
+}
+
+.nom {
+  font-weight: 250;
+  font-size: 20px;
+  margin-bottom: 2rem; /* Ajoutez un espace entre le nom et la fonction */
+}
+
+.fonction,
+.description {
+  font-size: 15px;
+  margin-bottom: 2rem; /* Ajoutez un espace entre la fonction et la description */
+}
+
+.asso__equipe_container-text-icon {
+  display: flex;
+  gap: 10px; /* Ajoutez un espace entre les icônes */
+  margin-top: 10px; /* Ajoutez un espace au-dessus des icônes */
+}
+
+.asso__equipe_container-text-icon img {
+  width: 20px;
+}

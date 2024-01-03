@@ -2,15 +2,15 @@ nav {
   background-color: $boston-blue;
 
   .mobile-menu-icon {
-    display: none; 
+    display: none;
     cursor: pointer;
-  
+
     @media (max-width: 768px) {
-      display: block; 
+      display: block;
       position: absolute;
       top: 0;
       right: 0;
-      padding: 10px; 
+      padding: 10px;
     }
   }
 
@@ -46,7 +46,6 @@ nav {
     @media (max-width: 768px) {
       display: none;
     }
-    
   }
   .empty {
     width: 250px;
@@ -68,15 +67,14 @@ nav {
 
       li {
         margin: 0 10px;
-        
+
         a {
           color: $white-color;
           text-decoration: none;
-          
+
           &:hover {
             color: $tequila;
           }
-          
         }
         .active-link {
           color: $link-water;
@@ -107,27 +105,24 @@ nav {
       }
     }
   }
-
-
 }
 
-.menu-dropdown{
+.menu-dropdown {
   font-weight: 400 !important;
   padding: 0 !important;
   text-transform: none !important;
-  font-family: 'Mada' !important;
+  font-family: "Mada" !important;
   font-size: 16px !important;
   justify-content: flex-start !important;
 }
 
-.MuiMenu-paper{
+.MuiMenu-paper {
   background-color: $boston-blue !important;
   color: $white-color !important;
   box-shadow: none !important;
-  border-radius: 0!important;
+  border-radius: 0 !important;
 
-
-  .MuiMenuItem-root{
-    font-family: 'Mada' !important;
+  .MuiMenuItem-root {
+    font-family: "Mada" !important;
   }
 }

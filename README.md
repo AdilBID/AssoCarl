@@ -8,6 +8,7 @@ Installer le projet
 
 ```bash
   git clone https://github.com/AdilBID/AssoCarl.git
+  cd AssoCarl
   npm install
 ```
 
@@ -16,3 +17,9 @@ Installer le projet
 ```bash
   npm run dev
 ```
+
+
+# Backend du projet Association Carl
+[Association AssoCarl Backend]([https://github.com/AdilBID/AssoCarlBackend))
+
+

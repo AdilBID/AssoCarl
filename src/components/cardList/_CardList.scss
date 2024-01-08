@@ -1,12 +1,13 @@
 // CARDLIST
 .cardlist {
-  min-width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  height: 27rem;
+  min-height: 27rem;
 
   .card {
     max-height: 28rem;
+    min-width: 225px;
     margin: 0;
     display: grid;
     grid-template-rows: 10em 4em 1fr;
@@ -25,47 +26,57 @@
   }
 
   svg {
-    width: 4.6rem;
+    width: 4.6em;
   }
 
   a {
     color: #377bc7;
-    display: flex;
-    align-items: center;
+    font-size: 1.1em;
     text-transform: uppercase;
-    font-size: 1.1rem;
     text-decoration: underline;
+    text-align: center;
   }
 
   .text {
-    display: flex;
-
-    width: 250px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
+    width: 220px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
     text-align: center;
-
-    p {
-      padding: 0 1rem;
-      font-size: .95rem;
-    }
+    padding: 0 .95em;
+    font-size: 1rem;
   }
 
   .actions {
-    color: #377bc7;
-    background: #c7f0fe;
+    color: #ffffff;
+    background: #CE6A6B;
   }
 
   .aide {
-    color: #377bc7;
-    background: #ffe7cb;
+    color: #ffffff;
+    background: #EBACA2;
   }
 
   .partenaire {
-    color: #377bc7;
-    background: #f7e5e7;
+    color: #ffffff;
+    background: #BED3C3;
   }
 
   .temoigner {
-    color: #377bc7;
-    background: #cbd7f2;
+    color: #ffffff;
+    background: #212E53;
+  }
+}
+
+/* Media query pour le redimensionnement dynamique */
+@media screen and (max-width: 936px) {
+  .cardlist {
+
+    grid-template-columns: repeat(2, 1fr); /* Passer à 2 colonnes sur les écrans plus petits */
+  }
+}
+
+/* Media query pour le redimensionnement dynamique */
+@media screen and (max-width: 550px) {
+  .cardlist {
+    display: flex;
+    flex-direction: column; /* Passer à 2 colonnes sur les écrans plus petits */
   }
 }

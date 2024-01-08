@@ -1,0 +1,114 @@
+.support {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: $boston-blue;
+
+  color: $white-color;
+  padding-top: 90px;
+
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  &-intro {
+    grid-column: 2/6;
+    justify-self: center;
+    padding-right: 30px;
+    color: $tequila;
+    @media (max-width: 480px) {
+      grid-column: none;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: "Black-mango";
+      font-size: 40px;
+      letter-spacing: 0em;
+      line-height: 56px;
+      font-weight: 400;
+      margin-bottom: 20px;
+
+      @media (max-width: 480px) {
+        font-size: 23px;
+        line-height: 32px;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+  }
+
+  &-options {
+    grid-column: 6/11;
+    justify-self: center;
+    @media (max-width: 480px) {
+      grid-column: none;
+    }
+
+    .support-item {
+      padding: 20px;
+      h2 {
+        font-family: "Black-mango";
+        font-size: 30px;
+        letter-spacing: 0em;
+        line-height: 42px;
+        font-weight: 400;
+        color: $tequila;
+        text-decoration: underline;
+
+        @media (max-width: 480px) {
+          font-size: 21px;
+          line-height: 29px;
+        }
+        a {
+          text-decoration: none;
+          color: $tequila;
+        }
+      }
+
+      h3 {
+        font-family: "ILoveGlitter";
+        font-size: 23px;
+        letter-spacing: 0em;
+        line-height: 42px;
+        font-weight: 400;
+        @media (max-width: 480px) {
+          font-size: 23px;
+          line-height: 42px;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 32px;
+        font-weight: 400;
+      }
+
+      .highlighted-text {
+        color: $tequila;
+      }
+
+      .email-link {
+        text-decoration: none;
+        color: $tequila;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .special-text {
+        color: $tequila;
+      }
+
+      .thinking-text {
+        color: $tequila;
+        font-weight: bold;
+      }
+
+      .warning {
+        font-style: italic;
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import "./scss/main.scss";
 // App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -8,6 +9,8 @@ import NousSoutenir from './Pages/NousSoutenir';
 import NotreEquipe from './Pages/NotreEquipe';
 import FaireUnDon from './Pages/FaireUnDon';
 import NotFoundPage from './Pages/NotFoundPage';
+import MentionsLegales from './Pages/mentions_legales/MentionsLegales';
+import Footer from './Components/Footer/Footer';
 
 
 const App: React.FC = () => {
@@ -20,6 +23,8 @@ const App: React.FC = () => {
         <Route path="/nous-soutenir" element={<NousSoutenir />} />
         <Route path="/notre-equipe" element={<NotreEquipe />} />
         <Route path="/faire-un-don" element={<FaireUnDon />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/legal/*" element={<Footer />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
